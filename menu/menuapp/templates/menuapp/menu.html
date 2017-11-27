@@ -1,0 +1,15 @@
+<ul>
+    {% for item in menu %}
+        {% if item.indent %}
+          <ul>
+        {% elif item.dedent %}
+          </ul>
+        {% else %}
+            <a href= '{{ item.link }}' >
+                <li>
+                    {{ item.title }}
+                </li>
+            </a>
+        {% endif %}
+    {% endfor %}
+</ul>
