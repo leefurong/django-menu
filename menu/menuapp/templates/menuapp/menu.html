@@ -1,4 +1,5 @@
 <div class='menu'>
+    <h2>{{ menu_name }}</h2>
     {% for item in menu %}
         {% if item.indent %}
           <ul>
@@ -11,5 +12,7 @@
                 </li>
             </a>
         {% endif %}
+        {% empty %}
+        There is no such menu: {{ menu_name }}
     {% endfor %}
 </div>
