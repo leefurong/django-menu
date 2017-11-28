@@ -2,7 +2,9 @@
 
 # Environment
 `$ virtualenv --python=python2.7  --no-site-packages ENV
+
 $ source ENV/bin/activate
+
 $ pip install -r requirements.txt
 `
 
@@ -11,10 +13,12 @@ $ pip install -r requirements.txt
 `
 # prepare the db
 `$ ./manage.py makemigrations
+
 $ ./manage.py migrate
 `
 # create admin user and start the dev server
 `$ ./manage.py createsuperuser
+
 $ ./manage.py runserver
 `
 * Now, open a browser, and go to http://localhost:8000/admin
@@ -30,6 +34,7 @@ After inserting some menu items in admin, you can display it by visiting: http:/
 
 # How to use the template tag?
 To use the tag in your app, you can write template like this:
+
 
 `{% load menu %}
 
