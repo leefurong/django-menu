@@ -19,5 +19,5 @@ from menuapp.views import home
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home),
+    url(r'^.*$', home), # map any url to our demo page.
 ]

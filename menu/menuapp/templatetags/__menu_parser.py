@@ -10,16 +10,32 @@ DEDENT={
             'dedent': True,
         }
 
+def get_path(url):
+    from urlparse import urlparse
+    return urlparse(url).path
 
 class StructuredMenu():
-    def __init__(self, menu_name):
+    def __init__(self, menu_name, selected_path):
         menu_items = MenuItem.objects.filter(menu_name=menu_name)
 
         # make a dict, so that it will be faster to query children
         item_dict = {}
+        selected_item = None
         for item in menu_items:
             key = item.parent and item.parent.pk
             item_dict.setdefault(key, []).append(item)
+            if (get_path(item.link) == selected_path):
+                selected_item = item
+
+        # expand
+        expanded_items = set([selected_item])
+        parent = selected_item and selected_item.parent
+        while parent:
+            expanded_items.add(parent)
+            parent = parent.parent
+        for item in menu_items:
+            item.expand = item in expanded_items
+
         
         # sort menu items by order_weight
         for v in item_dict.values():
@@ -48,7 +64,8 @@ class StructuredMenu():
                     'indent': False,
                     'dedent': False,
                 })
-                result.extend(self._get_normalized(child.pk))
+                if child.expand:
+                    result.extend(self._get_normalized(child.pk))
             result.append(DEDENT)
         return result
 
