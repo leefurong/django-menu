@@ -1,26 +1,23 @@
 # django-menu
 
 # Environment
-`$ virtualenv --python=python2.7  --no-site-packages ENV
+`$ virtualenv --python=python2.7  --no-site-packages ENV`
 
-$ source ENV/bin/activate
+`$ source ENV/bin/activate`
 
-$ pip install -r requirements.txt
-`
+`$ pip install -r requirements.txt`
 
-# How to testing
-`$ cd menu
-`
+# How to test
+`$ cd menu`
 # prepare the db
-`$ ./manage.py makemigrations
+`$ ./manage.py makemigrations`
 
-$ ./manage.py migrate
-`
+`$ ./manage.py migrate`
 # create admin user and start the dev server
-`$ ./manage.py createsuperuser
+`$ ./manage.py createsuperuser`
 
-$ ./manage.py runserver
-`
+`$ ./manage.py runserver`
+
 * Now, open a browser, and go to http://localhost:8000/admin
 * Then add some menu items.
 # Notices
@@ -36,8 +33,7 @@ After inserting some menu items in admin, you can display it by visiting: http:/
 To use the tag in your app, you can write template like this:
 
 
-`{% load menu %}
+`{% load menu %}`
 
-{% draw_menu 'example' %}
-`
+`{% draw_menu 'example' %}`
 
