@@ -26,10 +26,11 @@ $ ./manage.py runserver
 * Notice 3: the order_weight field is for ordering the menu items
 
 # Ready to go
-After inserting some menu items in admin, you can display it by visiting: localhost:8000/
+After inserting some menu items in admin, you can display it by visiting: http://localhost:8000/
 
 # How to use the template tag?
 To use the tag in your app, you can write template like this:
+
 `{% load menu %}
 
 {% draw_menu 'example' %}
