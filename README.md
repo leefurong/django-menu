@@ -1,5 +1,8 @@
 # django-menu
 
+# Demo video on how to run the test
+https://pan.baidu.com/s/1eSs6UNw
+
 # Environment
 `$ virtualenv --python=python2.7  --no-site-packages ENV`
 
